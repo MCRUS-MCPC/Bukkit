@@ -15,8 +15,8 @@ public class EffectCommand extends VanillaCommand {
 
     public EffectCommand() {
         super("effect");
-        this.description = "Adds/Removes effects on players";
-        this.usageMessage = "/effect <player> <effect> [seconds] [amplifier]";
+        this.description = "Добавляет/убирает эффект от игрока";
+        this.usageMessage = "/effect <игрок> <эффект> [секунды] [сила]";
         this.setPermission("bukkit.command.effect");
     }
 
@@ -46,7 +46,7 @@ public class EffectCommand extends VanillaCommand {
         final Player player = sender.getServer().getPlayer(args[0]);
 
         if (player == null) {
-            sender.sendMessage(ChatColor.RED + String.format("Player, %s, not found", args[0]));
+            sender.sendMessage(ChatColor.RED + String.format("Игрок %s не найден", args[0]));
             return true;
         }
 
@@ -57,7 +57,7 @@ public class EffectCommand extends VanillaCommand {
         }
 
         if (effect == null) {
-            sender.sendMessage(ChatColor.RED + String.format("Effect, %s, not found", args[1]));
+            sender.sendMessage(ChatColor.RED + String.format("Эффект %s не найден", args[1]));
             return true;
         }
 
@@ -82,17 +82,17 @@ public class EffectCommand extends VanillaCommand {
 
         if (duration_temp == 0) {
             if (!player.hasPotionEffect(effect)) {
-                sender.sendMessage(String.format("Couldn't take %s from %s as they do not have the effect", effect.getName(), args[0]));
+                sender.sendMessage(String.format("Невозможно забрать %s у игрока %s так как у него нет этого эффнкта", effect.getName(), args[0]));
                 return true;
             }
 
             player.removePotionEffect(effect);
-            broadcastCommandMessage(sender, String.format("Took %s from %s", effect.getName(), args[0]));
+            broadcastCommandMessage(sender, String.format("Эффект %s забран у %s", effect.getName(), args[0]));
         } else {
             final PotionEffect applyEffect = new PotionEffect(effect, duration, amplification);
 
             player.addPotionEffect(applyEffect, true);
-            broadcastCommandMessage(sender, String.format("Given %s (ID %d) * %d to %s for %d seconds", effect.getName(), effect.getId(), amplification, args[0], duration));
+            broadcastCommandMessage(sender, String.format("Эффект %s (ID %d) * %d выдан игроку %s на %d", effect.getName(), effect.getId(), amplification, args[0], duration + StringUtil.plural(duration," секунду"," секунды", " секунд")));
         }
 
         return true;

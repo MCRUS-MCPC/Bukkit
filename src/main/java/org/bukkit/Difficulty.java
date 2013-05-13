@@ -59,4 +59,18 @@ public enum Difficulty {
             BY_ID.put(diff.value, diff);
         }
     }
+
+    public String toSting() {
+        switch (this) {
+            case PEACEFUL:
+                return "МИРНО";
+            case EASY:
+                return "ЛЕГКО";
+            case NORMAL:
+                return "НОРМАЛЬНО";
+            case HARD:
+                return "ТЯЖЕЛО";
+        }
+        return "" + this;
+    }
 }

@@ -63,7 +63,7 @@ public class ScoreboardCommand extends VanillaCommand {
 
     public ScoreboardCommand() {
         super("scoreboard");
-        this.description = "Scoreboard control";
+        this.description = "Усправление счетной доской";
         this.usageMessage = "/scoreboard";
         this.setPermission("bukkit.command.scoreboard");
     }
@@ -73,7 +73,7 @@ public class ScoreboardCommand extends VanillaCommand {
         if (!testPermission(sender))
             return true;
         if (args.length < 1 || args[0].length() == 0) {
-            sender.sendMessage(ChatColor.RED + "Usage: /scoreboard <objectives|players|teams>");
+            sender.sendMessage(ChatColor.RED + "Синтаксис: /scoreboard <objectives|players|teams>");
             return false;
         }
 
@@ -81,7 +81,7 @@ public class ScoreboardCommand extends VanillaCommand {
 
         if (args[0].equalsIgnoreCase("objectives")) {
             if (args.length == 1) {
-                sender.sendMessage(ChatColor.RED + "Usage: /scoreboard objectives <list|add|remove|setdisplay>");
+                sender.sendMessage(ChatColor.RED + "Синтаксис: /scoreboard objectives <list|add|remove|setdisplay>");
                 return false;
             }
             if (args[1].equalsIgnoreCase("list")) {

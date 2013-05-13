@@ -11,7 +11,7 @@ import org.bukkit.CustomTimingsHandler;
 public class ReloadCommand extends BukkitCommand {
     public ReloadCommand(String name) {
         super(name);
-        this.description = "Reloads the server configuration and plugins";
+        this.description = "Перезагружает конфигурацию сервера и плагины";
         this.usageMessage = "/reload";
         this.setPermission("bukkit.command.reload");
         this.setAliases(Arrays.asList("rl"));
@@ -27,7 +27,7 @@ public class ReloadCommand extends BukkitCommand {
         Bukkit.reload();
         Command.broadcastCommandMessage(sender, ChatColor.GREEN + "Reload complete.");
         */
-        sender.sendMessage(ChatColor.RED + "Reload not allowed on an MCPC+ server.");
+        sender.sendMessage(ChatColor.RED + "Данная команда запрещена на MCPC+ сервере.");
         // MCPC+ end
 
         return true;

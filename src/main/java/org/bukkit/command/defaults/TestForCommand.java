@@ -7,8 +7,8 @@ import org.bukkit.command.CommandSender;
 public class TestForCommand extends VanillaCommand {
     public TestForCommand() {
         super("testfor");
-        this.description = "Tests whether a specifed player is online";
-        this.usageMessage = "/testfor <player>";
+        this.description = "Проверяет наличие игрока онлайн";
+        this.usageMessage = "/testfor <игрок>";
         this.setPermission("bukkit.command.testfor");
     }
 
@@ -16,11 +16,11 @@ public class TestForCommand extends VanillaCommand {
     public boolean execute(CommandSender sender, String currentAlias, String[] args) {
         if (!testPermission(sender)) return true;
         if (args.length < 1)  {
-            sender.sendMessage(ChatColor.RED + "Usage: " + usageMessage);
+            sender.sendMessage(ChatColor.RED + "Синтаксис: " + usageMessage);
             return false;
         }
 
-        sender.sendMessage(ChatColor.RED + "/testfor is only usable by commandblocks with analog output.");
+        sender.sendMessage(ChatColor.RED + "/testfor можно использовать только для командных блоков с выходным сигналом.");
         return true;
     }
 }

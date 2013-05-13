@@ -56,4 +56,16 @@ public enum GameMode {
             BY_ID.put(mode.getValue(), mode);
         }
     }
+
+    public String toString() {
+        switch (this) {
+            case CREATIVE:
+                return "КРЕАТИВ";
+            case SURVIVAL:
+                return "ВЫЖИВАНИЕ";
+            case ADVENTURE:
+                return "ПРИКЛЮЧЕНИЯ";
+        }
+        return "" + this;
+    }
 }
