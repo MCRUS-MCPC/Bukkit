@@ -275,7 +275,7 @@ public final class SimplePluginManager implements PluginManager {
             }
         }
 
-        TimingsCommand.timingStart = System.nanoTime(); // Spigot
+        org.bukkit.command.defaults.TimingsCommand.timingStart = System.nanoTime(); // Spigot
         return result.toArray(new Plugin[result.size()]);
     }
 
